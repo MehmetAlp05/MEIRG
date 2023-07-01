@@ -1,0 +1,20 @@
+{
+    "color-palette1":[
+        {
+            "color1":"#C8C5D9",
+            "color2":"#033E8C",
+            "color3":"#0B508C",
+            "color4":"#2474A6",
+            "color5":"#54BFB5"
+        }
+    ],
+    "color-palette2":[
+        {
+            "color1":"#3D403A",
+            "color2":"#888C81",
+            "color3":"#F2EFEB",
+            "color4":"#D9C9BA",
+            "color5":"#0D0D0D"
+        }
+    ]
+}
