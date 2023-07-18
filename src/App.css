@@ -10,8 +10,6 @@
   padding-top: 10vh;
   padding-bottom: 1vh;
   width: 60vw;
-  background: #F6F9F8; 
-  border-bottom: black 3px solid;
   
 }
 .navbar>.header{
@@ -24,21 +22,16 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.navbar>.login{
-  margin-left: auto;
-}
 .navbar>.menu{
   display: flex;
   flex-direction: row;
   margin-left: auto;
   margin-top: auto;
-  color:#1E1A1D;
   font-size: 2vh;
   font-family: Inter; 
   justify-content: space-around;
 }
 .navbar>.menu>.element{
-  border-bottom: 1px solid black;
   margin-left: 3vw;
   text-align: center;
   display: flex;
@@ -185,5 +178,38 @@ font-size: 2vh;
   margin-left: 20vw;
   margin-right: 20vw;
   margin-top: 10vh;
-  margin-bottom: 5vh;
+  padding-bottom: 5vh;  
+}
+/*OurTeam*/
+.ourTeam{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  padding-top: 10vh;
+  padding-bottom: 1vh;
+  width: 60vw;
+  color: #FBFDFF;
+}
+.ourTeam>.header{
+  color: #F86A4D;
+  font-size: 6vh;
+}
+.teamMember{
+  display: flex;  
+  flex-direction: column;
+  width: 20vw;
+}
+.ourTeam>.container{
+  display: grid;
+  grid-template-columns: 20vw 20vw 20vw;
+  grid-template-rows: 60vh 60vh 60vh ;
+  grid-gap: 20px;
+}
+.teamMember>img{
+  width: 20vw;
+  height: 40vh;
+}
+.teamMember>.name{
+  font-size: 4vh;
 }

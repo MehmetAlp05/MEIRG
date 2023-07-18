@@ -1,14 +1,17 @@
-export default function Navbar(){
+import { Link } from "react-router-dom";
+import About from "../pages/about";
+
+export default function Navbar(props){
     return(
         <>
-            <div className='navbar'>
-                <span className='header'>
-                    AgRe
+            <div className='navbar' style={{background:props.background,borderBottom:props.borderBottom}}>
+                <span className='header' style={{background:props.headerBackground,color:props.color}}>
+                    <Link to="/" style={{color:props.color}}>AgRe</Link>
                 </span>
-                <div className="menu">
-                    <div className="element">About Us</div>
-                    <div className="element">Release</div>
-                    <div className="element">News</div>
+                <div className="menu" style={{color:props.color}}>
+                    <div className="element" style={{borderBottom:props.borderBottomElement}}><Link to="/about" style={{color:props.color}}>About Us</Link></div>
+                    <div className="element" style={{borderBottom:props.borderBottomElement}}>Release</div>
+                    <div className="element" style={{borderBottom:props.borderBottomElement}}>News</div>
                 </div>
             </div>
         </>

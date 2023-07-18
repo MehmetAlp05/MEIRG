@@ -1,7 +1,7 @@
-export default function Footer(){
+export default function Footer(props){
     return(
         <>
-            <div className="footer">
+            <div className="footer" style={{color:props.color}}>
                 © 2023 AgRe All rights reserved.
             </div>
         </>
