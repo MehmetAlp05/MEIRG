@@ -1,6 +1,7 @@
 import Footer from "../components/footer"
 import Navbar from "../components/navbar"
 import OurTeam from "../components/ourTeam"
+import Profile from "../components/profile"
 import Whoweare from "../components/whoweare"
 export default function About(){
     return(
@@ -10,6 +11,7 @@ export default function About(){
                 <Whoweare more={false} color="#FBFDFF"/>
                 <OurTeam/>
                 <Footer color="#FBFDFF"/>
+                <Profile name="Mehmet Alp Demircioğlu" school="Middle East Technical University "/>
             </div>
         </>
     )

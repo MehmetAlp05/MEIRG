@@ -213,3 +213,102 @@ font-size: 2vh;
 .teamMember>.name{
   font-size: 4vh;
 }
+
+/*Profile*/
+.profilePage{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20vw;
+  padding-left: 5vw;
+  padding-top: 10vh;
+  padding-bottom: 1vh;
+  width: 60vw;
+  border-radius: 12px; 
+}
+.profilePage>.profileMain{
+  display: flex;
+  flex-direction: row;
+}
+.profilePage>.profileMain>.col1{
+  display: flex;
+  flex-direction: column;
+  width: 35vw;
+}
+.profilePage>.profileMain>.col2{
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+}
+.profilePage>.profileMain>.col2>img{
+  width: 20vw;
+  height: 40vh;
+}
+.profilePage>.profileMain>.col1>.name{
+  font-size: 6vh;
+}
+.profilePage>.profileMain>.col1>.school{
+  font-size: 3vh;
+}
+.profilePage>.profileAbout{
+  margin-top: 10vh;
+}
+.profilePage>.profileAbout>span{
+  font-size: 4vh;
+}
+.profilePage>.profileInterest{
+  margin-top: 10vh;
+}
+.profilePage>.profileInterest>span{
+  font-size: 4vh;
+}
+.profilePage>.profileRelease{
+  margin-top: 10vh;
+}
+.profilePage>.profileRelease>span{
+  font-size: 4vh;
+}
+
+/*ReleaseInfo*/
+.releaseInfo{
+  display: flex;
+  flex-direction: row;
+  margin-left: 20vw;
+  padding-left: 5vw;
+  margin-top:10vh ;
+  padding-top: 3vh;
+  padding-bottom: 1vh;
+  width: 55vw;
+  border-radius: 12px; 
+  background-color: #754FE8;
+}
+.releaseInfo>.col1{
+  display: flex;
+  flex-direction: column;
+  width: 35vw;
+}
+.releaseInfo>.col1>.title{
+  width: 25vw;
+  font-size: 6vh;
+  border-bottom: #0A054F solid 3px;
+}
+
+.releaseInfo>.col1>.context{
+  font-size: 2vh;
+  color: #FBFDFF;
+}
+.releaseInfo>.col2{
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+}
+.releaseInfo>.col2>img{
+  width: 20vw;
+  height: 40vh;
+}
+.releaseInfo>.col2>.more{
+  margin-left: auto;
+  margin-right: 3vw;
+  margin-top: 5vh;
+  font-size: 2vh;
+  color: #FBFDFF;
+}
