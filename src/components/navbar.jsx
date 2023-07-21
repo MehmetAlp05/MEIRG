@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import About from "../pages/about";
-
 export default function Navbar(props){
     return(
         <>
@@ -12,6 +10,7 @@ export default function Navbar(props){
                     <div className="element" style={{borderBottom:props.borderBottomElement}}><Link to="/about" style={{color:props.color}}>About Us</Link></div>
                     <div className="element" style={{borderBottom:props.borderBottomElement}}><Link to="/release" style={{color:props.color}}>Release</Link></div>
                     <div className="element" style={{borderBottom:props.borderBottomElement}}>News</div>
+                    <div className="element" style={{borderBottom:props.borderBottomElement}}><Link to="/profile" style={{color:props.color}}>{props.user}</Link></div>
                 </div>
             </div>
         </>
