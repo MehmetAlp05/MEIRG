@@ -247,6 +247,7 @@ font-size: 2vh;
 .profilePage>.profileMain>.col2>img{
   width: 20vw;
   height: 40vh;
+  border-radius: 6px; 
 }
 .profilePage>.profileMain>.col1>.name{
   font-size: 6vh;
@@ -268,7 +269,20 @@ font-size: 2vh;
 }
 .profilePage>.profileRelease{
   margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
 }
+.profilePage>.profileRelease>button{
+  border-radius: 6px;
+  background: var(--mobile-blue, #1D2859);
+  display: flex;
+  padding: 12px 24px;
+  align-items: center;
+  width: fit-content;
+  gap: 2px; 
+  color:#FBFDFF;
+}
+
 .profilePage>.profileRelease>span{
   font-size: 4vh;
 }
@@ -316,4 +330,21 @@ font-size: 2vh;
   margin-top: 5vh;
   font-size: 2vh;
   color: #FBFDFF;
+}
+/**/
+.editButton{
+  border: none;
+  width: 5vw;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: transparent;
+  transition: background-color 400ms,color 200ms;
+}
+.editButton:hover{
+  background-color: #754FE8;
+  color: #FBFDFF;
+}
+/*adminProfile*/
+.adminProfile{
+  width: 100vw;
 }
