@@ -4,8 +4,11 @@ import { auth } from '../../.firebase/firebaseConfig';
 import { collection, getDocs, updateDoc,doc } from "firebase/firestore";
 import {db,storage} from '../../.firebase/firebaseConfig';
 import {ref,uploadBytes,getDownloadURL} from "firebase/storage"
+import { useNavigate } from "react-router-dom";
 
 export default function ProfilePage(){
+    const navigate = useNavigate();
+
     const [users,setUsers]=useState([]);
     const [isEdit,setIsEdit]=useState();
     const [updateVar,setUpdateVar]=useState();
@@ -164,7 +167,7 @@ export default function ProfilePage(){
                 </div>
                 <div className="profileRelease">
                     <span>Release</span>
-                    <button>Add new release</button>
+                    <button onClick={()=>navigate("/releaseupload")}>Add new release</button>
                     <div className="container">
 
                     </div>
