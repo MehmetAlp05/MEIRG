@@ -1,7 +1,7 @@
 export default function ReleaseInfo(props){
     return(
         <>
-            <div className="releaseInfo" style={{backgroundColor:props.color}}>
+            <div className="releaseInfo" style={{backgroundColor:props.color,margin:props.margin}}>
                 <div className="col1">
                     <span className="title">
                         {props.title}
