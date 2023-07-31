@@ -4,10 +4,12 @@ import Navbar from "../components/navbar"
 export default function ReleasePage(){
     return(
         <>
-            <div style={{background:"#1D2859"}}>
+            <div style={{background:"#1D2859"}} className="releasePage">
                 <Navbar background="#1D2859" borderBottom="#754FE8 3px solid" borderBottomElement="#754FE8 1px solid" color="#754FE8" headerBackground=""/>
-                <ReleaseInfo title="experiment1" explanation="kmaskdmakldmklad"/>
-                <ReleaseInfo title="experiment1" explanation="kmaskdmakldmklad"/>
+                <div className="container">
+                    <ReleaseInfo title="experiment1" explanation="kmaskdmakldmklad"/>
+                    <ReleaseInfo title="experiment1" explanation="kmaskdmakldmklad"/>
+                </div>
                 <Footer color="#FBFDFF"/>
             </div>
         </>

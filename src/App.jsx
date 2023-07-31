@@ -1,6 +1,6 @@
 import { useState ,useContext} from 'react'
 import './App.css'
-import './mobile.css'
+import './App-mobile.css'
 import Home from './pages/home';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import About from './pages/about';
