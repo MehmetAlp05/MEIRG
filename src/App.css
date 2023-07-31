@@ -58,7 +58,9 @@
 }
 .welcome>.other{
   height: 30vh;
+  font-size: 2.5vh;
   border-left: #1D2859 3px solid;
+  padding: 3rem;
 }
 /* Who we are*/
 .whoweare{

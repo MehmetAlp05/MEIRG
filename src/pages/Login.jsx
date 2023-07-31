@@ -35,33 +35,38 @@ const Login = () => {
 }
 
   return (
-    <div className="login">
-      <input
-          id="email-address"
-          name="email"
-          type="email"                                    
-          required                                                                                
-          placeholder="Email address"
-          onChange={(e)=>setEmail(e.target.value)}
-      />
-      <input
-          id="password"
-          name="password"
-          type="password"                                    
-          required                                                                                
-          placeholder="Password"
-          onChange={(e)=>setPassword(e.target.value)}
-      />
-      <button                                    
-          onClick={onLogin}                                        
-      >      
-          Login                                                                  
-      </button>
-      <button
-        onClick={handleLogout}
-      >
-        logOut
-      </button>
+    <div className="releaseUpload">
+      <div className='block'> 
+        <input
+            id="email-address"
+            name="email"
+            type="email"                                    
+            required                                                                                
+            placeholder="Email address"
+            onChange={(e)=>setEmail(e.target.value)}
+        />
+
+      </div>
+      <div className='block'> 
+        <input
+            id="password"
+            name="password"
+            type="password"                                    
+            required                                                                                
+            placeholder="Password"
+            onChange={(e)=>setPassword(e.target.value)}
+        />
+
+      </div>
+      <div className="backforth">
+        <div className="miniBlock" onClick={onLogin}>
+            Login
+          </div>
+          <div className="miniBlock" onClick={handleLogout}>
+              logOut
+          </div>
+        </div>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdupblxXIY1H6anSVJCJCoEg9URanTYxLEEwfGqh_2TZtx5lg/viewform?embedded=true" width="640" height="1527" frameborder="0" marginheight="0" marginwidth="0">Yükleniyor…</iframe>
     </div>
   );
 };

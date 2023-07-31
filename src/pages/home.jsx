@@ -65,7 +65,6 @@ export default function Home(){
                 <Whoweare more={true} color="#F86A4D"/>
                 <Release/>
                 <Footer/>
-                <Login></Login>
             </div>
         </>
     )

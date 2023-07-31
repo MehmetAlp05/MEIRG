@@ -3,6 +3,7 @@ import ReleaseInfo from "../components/releaseInfo";
 import { useNavigate } from "react-router-dom";
 import {db,storage,auth} from "../../.firebase/firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
+import {ref,uploadBytes,getDownloadURL} from "firebase/storage"
 import {
     collection,
     getDocs,
@@ -10,7 +11,9 @@ import {
     updateDoc,
     doc
   } from "firebase/firestore";
-
+import successfulPodcast from "../assets/podcast.svg"
+import successfulVideo from "../assets/video.svg"
+import successfulArticle from "../assets/article.svg"
 
 export default function ReleaseUpload(){
     const navigate = useNavigate();
@@ -19,7 +22,8 @@ export default function ReleaseUpload(){
     const [podcast,setPodcast]=useState({title:"",description:"",link:""});
     const [video,setVideo]=useState({title:"",description:"",link:""});
     const [article,setArticle]=useState({title:"",description:"",link:"",pdfLink:""});
-
+    const pdfUrl=useRef(null)
+    const [pdf, setPDF] = useState(null);
     
     const docId=useRef("");
     const eventsCollectionRef=collection(db,"release");
@@ -40,6 +44,7 @@ export default function ReleaseUpload(){
         .finally(docRef=>{
             console.log(docId);
             (docId!=="")?updateData():setTempType(tempType);
+            setType("finalPodcast");
         });
     };
     const createVideo = async () => {
@@ -51,10 +56,12 @@ export default function ReleaseUpload(){
         .finally(docRef=>{
             console.log(docId);
             (docId!=="")?updateData():setTempType(tempType);
+            setType("finalVideo");
         });
     };
     const createArticle = async () => {
-        await addDoc(eventsCollectionRef, {title:article.title,description:article.description,link:article.link,pdf:article.pdfLink,type:"article" })
+
+        await addDoc(eventsCollectionRef, {title:article.title,description:article.description,link:article.link,pdf:pdfUrl.current,type:"article" })
         .then(docRef=>{
             console.log(docRef.id);
             docId.current=docRef.id
@@ -62,6 +69,7 @@ export default function ReleaseUpload(){
         .finally(docRef=>{
             console.log(docId);
             (docId!=="")?updateData():setTempType(tempType);
+            setType("finalArticle");
         });
     };
 
@@ -106,7 +114,29 @@ export default function ReleaseUpload(){
         console.log(currentUser.release)
 
     })
+    const handlePdfChange = (e) => {
+        if (e.target.files[0]) {
+          setPDF(e.target.files[0]);
+        }
+    };
     
+    const handleSubmit = () => {
+        const fileRef = ref(storage, `pdfs/${pdf.name}`);
+        uploadBytes(fileRef, pdf)
+          .then(() => {
+            getDownloadURL(fileRef)
+              .then((url) => {
+                pdfUrl.current=url
+              })
+              .catch((error) => {
+                console.log(error.message, "error getting the image url");
+              });
+            setPDF(null);
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
+    };
 
 
     return(
@@ -175,6 +205,15 @@ export default function ReleaseUpload(){
                     </div>
                     </div>
                 }
+                {
+                    (type==="finalPodcast")&& <div className="releaseUpload">
+                        <div>
+                            <img src={successfulPodcast} alt="successfulPodcast" />
+                        </div>
+                    </div>
+                }
+                
+
                 {(type==="video")&&<div className="releaseUpload">
                     <div className="block">
                         You are adding a Video.
@@ -208,10 +247,17 @@ export default function ReleaseUpload(){
                         <div className="miniBlock" onClick={()=>setType("video")}>
                             Go Back
                         </div>
-                        <div className="miniBlock" onClick={()=>setType("previewVideo")}>
+                        <div className="miniBlock" onClick={createVideo}>
                             Next Page
                         </div>
                     </div>
+                    </div>
+                }
+                {
+                    (type==="finalVideo")&& <div className="releaseUpload">
+                        <div>
+                            <img src={successfulVideo} alt="successfulvideo" />
+                        </div>
                     </div>
                 }
                 {(type==="article")&&<div className="releaseUpload">
@@ -232,7 +278,8 @@ export default function ReleaseUpload(){
                     </div>
                     <div className="block">
                         <span>Add PDF</span>
-                        <input  type="file" placeholder="Add Title"></input>
+                        <input  type="file" placeholder="Add Title" onChange={handlePdfChange}></input>
+                        <button onClick={handleSubmit}>Submit</button>
                     </div>
                     
                     <div className="backforth">
@@ -254,10 +301,17 @@ export default function ReleaseUpload(){
                         <div className="miniBlock" onClick={()=>setType("article")}>
                             Go Back
                         </div>
-                        <div className="miniBlock" onClick={()=>setType("previewArticle")}>
+                        <div className="miniBlock" onClick={createArticle}>
                             Next Page
                         </div>
                     </div>
+                    </div>
+                }
+                {
+                    (type==="finalArticle")&& <div className="releaseUpload">
+                        <div>
+                            <img src={successfulArticle} alt="successfularticle" />
+                        </div>
                     </div>
                 }
 
