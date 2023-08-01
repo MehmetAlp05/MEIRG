@@ -4,11 +4,13 @@ import Whoweare from '../components/whoweare'
 import Release from '../components/release'
 import Footer from '../components/footer'
 import Login from './Login'
+import hamburgerNormal from"../assets/hamburgerNormal.png"
 import React, { useState, useEffect } from 'react';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../../.firebase/firebaseConfig';
 import { collection, getDocs } from "firebase/firestore";
 import {db} from '../../.firebase/firebaseConfig';
+import MobileNavbar from '../components/mobile-navbar'
 
 
 export default function Home(){
@@ -56,15 +58,18 @@ export default function Home(){
     //console.log(uid)
     //console.log(users.find(user=>user.uid===uid))
     
+    const [isMenu,setMenu]=useState(false)
 
     return(
         <>
             <div style={{background:"#F6F9F8"}}>
+                <div className='mobile' onClick={() => setMenu(true)} style={{position:"absolute",width:"4rem",height:"4rem",top:"3vh",right:"3vw"}}><img style={{height:"100%",width:"100%"}}src={hamburgerNormal}></img></div>
                 <Navbar background="#F6F9F8" borderBottom="black 3px solid" borderBottomElement="black 1px solid" color="#1E1A1D" user={(typeof(currentUser) !== 'undefined')&&currentUser.name} />
                 <Welcome/>
                 <Whoweare more={true} color="#F86A4D"/>
                 <Release/>
                 <Footer/>
+                <MobileNavbar img={hamburgerNormal} isMenu={isMenu} onChange={setMenu}/>
             </div>
         </>
     )

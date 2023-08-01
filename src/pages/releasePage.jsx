@@ -1,16 +1,24 @@
 import { Link } from "react-router-dom"
 import Footer from "../components/footer"
 import Navbar from "../components/navbar"
+import hamburgerOrange from"../assets/hamburgerPurple.svg"
+import MobileNavbar from "../components/mobile-navbar"
+import { useState } from "react"
 export default function ReleasePage(){
+    const [isMenu,setMenu]=useState(false)
+
     return(
         <>
             <div style={{background:"#1D2859"}} className="releasePage">
+                <div className='mobile' onClick={() => setMenu(true)} style={{position:"absolute",width:"4rem",height:"4rem",top:"3vh",right:"3vw"}}><img style={{height:"100%",width:"100%"}}src={hamburgerOrange}></img></div>    
                 <Navbar background="#1D2859" borderBottom="#754FE8 3px solid" borderBottomElement="#754FE8 1px solid" color="#754FE8" headerBackground=""/>
                 <div className="container">
                     <ReleaseInfo title="experiment1" explanation="kmaskdmakldmklad"/>
                     <ReleaseInfo title="experiment1" explanation="kmaskdmakldmklad"/>
                 </div>
                 <Footer color="#FBFDFF"/>
+                <MobileNavbar img={hamburgerOrange} isMenu={isMenu} onChange={setMenu}/>
+
             </div>
         </>
     )
