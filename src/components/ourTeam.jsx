@@ -6,26 +6,24 @@ export default function OurTeam(props){
                     Our Team
                 </span>
                 <div className="container">
-                    <TeamMember/>
-                    <TeamMember/>
-                    <TeamMember/>
-                    <TeamMember/>
-                    <TeamMember/>
-                    <TeamMember/>
-                    <TeamMember/>
-                    <TeamMember/>
-                    <TeamMember/>
+                    {
+                        props.users.map((e)=>{
+                            return(
+                                <TeamMember name={e.name} img={e.picture} function={props.function} id={e.id}/>
+                            )
+                        })
+                    }
                 </div>
             </div>
         </>
     )
 }
-function TeamMember(){
+function TeamMember(props){
     return(
         <>
-            <div className="teamMember">
-                <img src="" alt="" />
-                <span className="name">Mehmet Alp Demircioğlu </span>
+            <div className="teamMember" onClick={props.function} id={props.id}>
+                <img src={props.img} alt="" />
+                <span className="name">{props.name}</span>
             </div>
         </>
     )

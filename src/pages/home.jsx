@@ -69,7 +69,7 @@ export default function Home(){
                 <Whoweare more={true} color="#F86A4D"/>
                 <Release/>
                 <Footer/>
-                <MobileNavbar img={hamburgerNormal} isMenu={isMenu} onChange={setMenu}/>
+                <MobileNavbar img={hamburgerNormal} isMenu={isMenu} onChange={setMenu} background="#F6F9F8"/>
             </div>
         </>
     )

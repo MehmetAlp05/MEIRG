@@ -249,7 +249,6 @@
   z-index: 999;
   left: 0;
   top: 0;
-  background-color: #FFFFFF;
   transform: translate(+100%);
   transition: all .45s;
 }
@@ -262,21 +261,16 @@
   margin-bottom: 2vh;
   display: flex;
   align-items: center;
+  color: #F86A4D;
 }
+.mobile-navbar>.nav>a{
+  color: #F86A4D;
+}
+
 .mobile-navbar>.nav>img{
   margin-left: auto;
   height: 3vh;
   width: 3vh;
-}
-.mobile-navbar >.list{
-  display: flex;
-  flex-direction: column;
-  margin-left: 10vh;
-  margin-right: 10vh;
-  margin-bottom: 2vh;
-}
-.mobile-navbar >.list>.link{
-  margin: 1vh;
 }
 .mobile-navbar.open {
   transform: translate(0);

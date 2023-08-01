@@ -17,7 +17,7 @@ export default function ReleasePage(){
                     <ReleaseInfo title="experiment1" explanation="kmaskdmakldmklad"/>
                 </div>
                 <Footer color="#FBFDFF"/>
-                <MobileNavbar img={hamburgerOrange} isMenu={isMenu} onChange={setMenu}/>
+                <MobileNavbar img={hamburgerOrange} isMenu={isMenu} onChange={setMenu} background="#1D2859"/>
 
             </div>
         </>

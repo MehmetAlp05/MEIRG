@@ -416,4 +416,7 @@ font-size: 2vh;
   background-color: #F86A4D;
   color: #F6F9F8;
 }
+.mobile{
+  display: none;
+}
 }
