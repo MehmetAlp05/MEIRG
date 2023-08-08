@@ -16,7 +16,7 @@ export default function Profile (props){
                     </span>
                 </div>
                 <div className="col2">
-                    <img src="" alt="" />
+                    <img src={props.img} alt="" />
                 </div>
             </div>
             <div className="profileAbout">
@@ -34,7 +34,15 @@ export default function Profile (props){
             <div className="profileRelease">
                 <span>Release</span>
                 <div className="container">
-
+                    {
+                        props.release.slice(0,4).map((e)=>{
+                            return(
+                                <div>
+                                    {e.title}
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </div>
         </div>

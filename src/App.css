@@ -37,6 +37,7 @@
   text-align: center;
   display: flex;
   justify-content: center;
+
 }
 /*Welcome*/
 .welcome{
@@ -134,14 +135,15 @@
 .releaseCard>.background {
   border-radius: 13.905px;
 
-  position: absolute;
+  position:relative;
   height: 100%;
   width: 100%;
-  background-image: url("/src/assets/Rectangle9.png");
+  /*background-image: url("/src/assets/Rectangle9.png");*/
   background-size: cover;
   left: 0;
   top: 0;
   filter: blur(10px);
+  -webkit-filter: blur(10px);
   z-index: -1;
   margin: 0;
   padding: 0;
@@ -247,6 +249,10 @@ font-size: 2vh;
   flex-direction: column;
   width: 25vw;
 }
+.profilePage>.profileMain>.col2.container{
+  display: flex;
+  flex-direction: row;
+}
 .profilePage>.profileMain>.col2>img{
   width: 20vw;
   height: 40vh;
@@ -301,7 +307,6 @@ font-size: 2vh;
   padding-bottom: 1vh;
   width: 55vw;
   border-radius: 12px; 
-  background-color: #754FE8;
 }
 .releaseInfo>.col1{
   display: flex;
@@ -418,5 +423,11 @@ font-size: 2vh;
 }
 .mobile{
   display: none;
+}
+
+.textAreaProfile{
+  resize: none;
+  width: 40vw;
+  height: 15vh;
 }
 }

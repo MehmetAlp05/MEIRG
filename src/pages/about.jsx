@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react"
+import { useState,useEffect,useRef } from "react"
 import Footer from "../components/footer"
 import Navbar from "../components/navbar"
 import OurTeam from "../components/ourTeam"
@@ -12,6 +12,7 @@ import {db} from '../../.firebase/firebaseConfig';
 export default function About(){
 
     const [users,setUsers]=useState([]);
+    const [release,setRelease]=useState([]);
 
     
     const eventsCollectionRef=collection(db,"users");
@@ -22,10 +23,19 @@ export default function About(){
     } 
     getUsers()
     },[])
+    const releaseCollectionRef=collection(db,"release");
+    useEffect(()=>{
+        const getUsers=async()=>{
+        const data=await getDocs(releaseCollectionRef)
+        setRelease(data.docs.map(( doc) => ({ ...doc.data(), id: doc.id })));
+    } 
+    getUsers()
+    },[])
 
     const [isMenu,setMenu]=useState(false)
     const [isProfile,setProfile]=useState(false)
-    const [currentUser, setCurrentUser] = useState({});
+    const currentUser = useRef({});
+    const currentRelease = useRef({});
     function findMyObject(b){
         let a = users.find(a=>a.id===b)
         console.log(a)
@@ -33,9 +43,11 @@ export default function About(){
     }
     function findId (e){
         isProfile?setProfile(false):setProfile(true);
-        setCurrentUser(findMyObject(e.currentTarget.id));
+        currentUser.current=findMyObject(e.currentTarget.id);
+        currentRelease.current=release.filter(obj=>currentUser.current.release.includes(obj.id))    
 
     };
+
     return(
         <>
             <div style={{background:"#1D2859"}}>
@@ -46,7 +58,7 @@ export default function About(){
                 <Footer color="#FBFDFF"/>
                 <MobileNavbar img={hamburgerOrange} isMenu={isMenu} onChange={setMenu} background="#1D2859"/></>}
                 {
-                    (isProfile)&&<Profile name={currentUser.name} school="Middle East Technical University "/>
+                    (isProfile)&&<Profile name={currentUser.current.name} school={currentUser.current.university} release={currentRelease.current} img={currentUser.current.picture}/>
                 }
 
             </div>

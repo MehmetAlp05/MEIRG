@@ -4,10 +4,6 @@ export default function ReleaseCard(props){
         <>
             <div className="releaseCard" >
                 <div className="background"></div>
-                <div className="profile">
-                    <img src={props.img} alt="profileImage" />
-                    <span>{props.name}</span>
-                </div>
                 <div className="experiment">
                     {props.experimentName}
                 </div>

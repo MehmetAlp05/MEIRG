@@ -7,7 +7,7 @@ export default function Navbar(props){
                     <Link to="/" style={{color:props.color}}>AgRe</Link>
                 </span>
                 <div className="menu" style={{color:props.color}}>
-                    <div className="element" style={{borderBottom:props.borderBottomElement}}><Link to="/about" style={{color:props.color}}>About Us</Link></div>
+                    <div className="element hoverOrange" style={{borderBottom:props.borderBottomElement}}><Link to="/about" style={{color:props.color}}>About Us</Link></div>
                     <div className="element" style={{borderBottom:props.borderBottomElement}}><Link to="/release" style={{color:props.color}}>Release</Link></div>
                     <div className="element" style={{borderBottom:props.borderBottomElement}}>News</div>
                     <div className="element" style={{borderBottom:props.borderBottomElement}}><Link to="/profile" style={{color:props.color}}>{props.user}</Link></div>

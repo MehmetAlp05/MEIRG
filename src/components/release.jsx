@@ -7,12 +7,13 @@ export default function Release(props){
             <div className="release">
                 <span className="header">Recent Release</span>
                 <div className="container">
-                <ReleaseCard name="Alp Demircioğlu" experimentName="Experiment1" experimentContext="a"/>
-                <ReleaseCard name="Alp Demircioğlu" experimentName="Experiment1" experimentContext="a"/>
-                <ReleaseCard name="Alp Demircioğlu" experimentName="Experiment1" experimentContext="a"/>
-                <ReleaseCard name="Alp Demircioğlu" experimentName="Experiment1" experimentContext="a"/>
-                <ReleaseCard name="Alp Demircioğlu" experimentName="Experiment1" experimentContext="a"/>
-                <ReleaseCard name="Alp Demircioğlu" experimentName="Experiment1" experimentContext="a"/>
+                {
+                    props.release.slice(0,6).map((e)=>{
+                        return(
+                            <ReleaseCard experimentName={e.title} experimentContext={e.description}/>
+                        )
+                    })
+                }
                 <span className="more"><Link to="/release" style={{color:props.color}}>More...</Link></span>
 
                 </div>

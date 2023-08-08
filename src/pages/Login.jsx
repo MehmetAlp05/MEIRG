@@ -35,7 +35,7 @@ const Login = () => {
 }
 
   return (
-    <div className="releaseUpload">
+    <div className="releaseUpload login">
       <div className='block'> 
         <input
             id="email-address"
@@ -66,7 +66,7 @@ const Login = () => {
               logOut
           </div>
         </div>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdupblxXIY1H6anSVJCJCoEg9URanTYxLEEwfGqh_2TZtx5lg/viewform?embedded=true" width="640" height="1527" frameborder="0" marginheight="0" marginwidth="0">Yükleniyor…</iframe>
+
     </div>
   );
 };

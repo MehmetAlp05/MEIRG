@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../../.firebase/firebaseConfig';
 import { collection, getDocs, updateDoc,doc } from "firebase/firestore";
@@ -12,7 +12,10 @@ export default function ProfilePage(){
     const [users,setUsers]=useState([]);
     const [isEdit,setIsEdit]=useState();
     const [updateVar,setUpdateVar]=useState();
-    
+    const [release,setRelease]=useState([]);
+    const [uid, setUid] = useState('');
+    const currentUser=useRef({})
+
     
     const eventsCollectionRef=collection(db,"users");
     useEffect(()=>{
@@ -22,13 +25,21 @@ export default function ProfilePage(){
     } 
     getUsers()
     },[])
+    const releaseCollectionRef=collection(db,"release");
+    useEffect(()=>{
+        const getUsers=async()=>{
+        const data=await getDocs(releaseCollectionRef)
+        setRelease(data.docs.map(( doc) => ({ ...doc.data(), id: doc.id })));
+    } 
+    getUsers()
+    },[])
+
     
-    const [uid, setUid] = useState('');
-    const [currentUser,setCurrentUser]=useState({name:""});
+    
     const findCurrentUserByUid=(uidToFind)=>{
         const user=users.find((p)=>p.uid===uidToFind)
         if (user) {
-            setCurrentUser(user);
+            currentUser.current=user;
           } else {
             console.log(user);
           }    }
@@ -50,38 +61,45 @@ export default function ProfilePage(){
           });
     }, [])
     useEffect(()=>{
-        findCurrentUserByUid(uid)
-        console.log(currentUser)
+        
+        console.log(currentUser.release)
+        //setCurrentRelease(release.filter(obj=>currentUser.release.includes(obj.id)))
+
 
     })
+    findCurrentUserByUid(uid)
+
+
+    
     const updateData=(type,value)=>{
-        const userDoc=doc(db,"users",currentUser.id)
+        const userDoc=doc(db,"users",currentUser.current.id)
         const newField={[type]:value}
         updateDoc(userDoc,newField)
         setIsEdit("")
     }
     //<IMG
-    const [url,setURL]=useState(null)
-    const [image, setImage] = useState(null);
+    const imgUrl=useRef()
+    const image=useRef()
 
     const handleImageChange = (e) => {
         if (e.target.files[0]) {
-          setImage(e.target.files[0]);
+          image.current=e.target.files[0];
         }
     };
     
     const handleSubmit = () => {
-        const imageRef = ref(storage, `images/${image.name}`);
-        uploadBytes(imageRef, image)
+        const imageRef = ref(storage, `images/${image.current.name}`);
+        uploadBytes(imageRef, image.current)
           .then(() => {
             getDownloadURL(imageRef)
               .then((url) => {
-                setURL(url);
+                imgUrl.current=url
+                console.log(imgUrl.current)
+                window.alert("you have successfully upload your profile picture")
               })
               .catch((error) => {
                 console.log(error.message, "error getting the image url");
               });
-            setImage(null);
           })
           .catch((error) => {
             console.log(error.message);
@@ -90,7 +108,7 @@ export default function ProfilePage(){
 
     };
     function setProfilePicture(){
-        updateData("picture",url)
+        updateData("picture",imgUrl.current)
     }
     //IMG>
     
@@ -102,7 +120,7 @@ export default function ProfilePage(){
                     <div className="col1">
                         
                         {isEdit!=="name"&&<><span className="name">
-                            {(typeof(currentUser) !== 'undefined')&&currentUser.name}
+                            {(typeof(currentUser.current) !== 'undefined')&&currentUser.current.name}
                         </span>
                         <button onClick={()=>setIsEdit("name")} className='editButton'>edit</button></>
                         }
@@ -114,7 +132,7 @@ export default function ProfilePage(){
                         </>}
 
                         {isEdit!=="university"&&<><span className="school">
-                            {(typeof(currentUser) !== 'undefined')&&currentUser.university}
+                            {(typeof(currentUser.current) !== 'undefined')&&currentUser.current.university}
                         </span>
                         <button onClick={()=>setIsEdit("university")} className='editButton'>edit</button></>
                         }
@@ -126,21 +144,23 @@ export default function ProfilePage(){
                         </>}
                     </div>
                     <div className="col2">
-                        <img src={currentUser.picture} alt="" />
-                        <input type="file" onChange={handleImageChange}/>
-                        <button className='editButton' onClick={handleSubmit}>Upload Photo</button>
-                        <button className='editButton' onClick={setProfilePicture}>Set as Profile Picture</button>
+                        <img src={currentUser.current.picture} alt="" />
+                            <input type="file" onChange={handleImageChange}/>
+                        <div className='container'>
+                            <button className='editButton' onClick={handleSubmit}>Upload Photo</button>
+                            <button className='editButton' onClick={setProfilePicture}>Set as Profile Picture</button>
+                        </div>
                     </div>
                 </div>
                 <div className="profileAbout">
                     <span>About</span>
                     <div className="context">
                         {isEdit!=="about"&&<><span className="school">
-                            {(typeof(currentUser) !== 'undefined')&&currentUser.about}
+                            {(typeof(currentUser.current) !== 'undefined')&&currentUser.current.about}
                         </span>
                         <button onClick={()=>setIsEdit("about")} className='editButton'>edit</button></>
                         }
-                        {isEdit==="about"&&<><textarea type='textarea' onChange={(event)=>{setUpdateVar(event.target.value)}}>
+                        {isEdit==="about"&&<><textarea type='textarea' className='textAreaProfile' onChange={(event)=>{setUpdateVar(event.target.value)}}>
 
                         </textarea>
                         <button className='editButton' onClick={()=>{updateData("about",updateVar)}}>update</button>
@@ -152,11 +172,11 @@ export default function ProfilePage(){
                     <span>Interest</span>
                     <div className="context">
                         {isEdit!=="interest"&&<><span className="school">
-                            {(typeof(currentUser) !== 'undefined')&&currentUser.interest}
+                            {(typeof(currentUser.current) !== 'undefined')&&currentUser.current.interest}
                         </span>
                         <button onClick={()=>setIsEdit("interest")} className='editButton'>edit</button></>
                         }
-                        {isEdit==="interest"&&<><textarea type='textarea' onChange={(event)=>{setUpdateVar(event.target.value)}}>
+                        {isEdit==="interest"&&<><textarea type='textarea'className='textAreaProfile' onChange={(event)=>{setUpdateVar(event.target.value)}}>
 
                         </textarea>
                         <button className='editButton' onClick={()=>{updateData("interest",updateVar)}}>update</button>
@@ -169,7 +189,16 @@ export default function ProfilePage(){
                     <span>Release</span>
                     <button onClick={()=>navigate("/releaseupload")}>Add new release</button>
                     <div className="container">
-
+                        {   
+                            
+                            release.filter(obj=>currentUser.current.release.includes(obj.id)).map((e)=>{
+                                return(
+                                    <div>
+                                        {e.title}
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>
