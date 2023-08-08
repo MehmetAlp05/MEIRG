@@ -27,9 +27,9 @@
 .welcome{
     display: flex;
     flex-direction: column;
+    padding: 1rem;
     padding-top: 3vh;
     padding-bottom: 1vh;
-    width: 100vw;
     background: #F6F9F8;
     color:#1D2859;
   }
@@ -47,20 +47,19 @@
 .whoweare{
     display: flex;
     flex-direction: column;
+    padding: 1rem;
     padding-top: 10vh;
     padding-bottom: 1vh;
-    width: 100vw;
     background: #1D2859;
     color:#F86A4D;
-    font-size: 3vh;
+    font-size: 1.3rem;
   
   }
   .whoweare>.header{
-    font-size: 6vh;
+    font-size: 2.5rem;
     margin-bottom: 5vh;
   }
   .whoweare>.context{
-    width: 100vw;
     padding: 0;
     margin:0;
     margin-bottom: 5vh;
@@ -100,7 +99,7 @@
     box-shadow: 0px 10.429091453552246px 6.952727794647217px 0px rgba(0, 0, 0, 0.25);
   
     width: 60vw;
-    height: 20vh;
+    height: auto;
     padding: 30px;
     margin: 2rem;
     display: flex;
@@ -184,14 +183,15 @@
   .ourTeam>.container{
     display: grid;
     grid-template-columns: 40vw 40vw;
-    grid-template-rows: 40vh 40vh 40vh ;
+    grid-template-rows: 30vh 30vh 30vh 30vh 30vh 30vh ;
     grid-gap: 20px;
   }
   .teamMember>img{
     width: 40vw;
-    height: 30vh;
+    height: auto;
   }
   .teamMember>.name{
+    margin-top: auto;
     font-size: 1rem;
   }
   /*ReleasePage*/
@@ -204,6 +204,7 @@
 .releaseInfo{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     margin-top:10vh ;
     padding-top: 3vh;
     padding-bottom: 1vh;
@@ -215,20 +216,22 @@
   .releaseInfo>.col1{
     display: flex;
     flex-direction: column;
-    width: 35vw;
+    align-items: center;
+    width: 60vw;
   }
   .releaseInfo>.col1>.title{
-    width: 25vw;
-    font-size: 2rem;
+    width: 60vw;
+    font-size: 1.2rem;
     border-bottom: #0A054F solid 3px;
   }
   
   .releaseInfo>.col1>.context{
-    font-size: 2vh;
+    width: 60vw;
+    font-size: 1rem;
     color: #FBFDFF;
   }
   .releaseInfo>.col2{
-    display: flex;
+    display: none;
     flex-direction: column;
     width: 25vw;
   }
@@ -279,4 +282,73 @@
   display: none;
 }
   
+}
+/*Profile*/
+.profilePage{
+  display: flex;
+  flex-direction: column;
+  padding-top: 10vh;
+  padding-bottom: 1vh;
+  border-radius: 12px; 
+  min-height: 100vh;
+}
+.profilePage>.profileMain{
+  display: flex;
+  flex-direction: row;
+}
+.profilePage>.profileMain>.col1{
+  display: flex;
+  flex-direction: column;
+}
+.profilePage>.profileMain>.col2{
+  display: flex;
+  flex-direction: column;
+}
+.profilePage>.profileMain>.col2.container{
+  display: flex;
+  flex-direction: row;
+}
+.profilePage>.profileMain>.col2>img{
+  margin-left: auto;
+  margin-right: 0.5rem;
+  width: 40vw;
+  height: auto;
+  border-radius: 6px; 
+}
+.profilePage>.profileMain>.col1>.name{
+  font-size: 2rem;
+}
+.profilePage>.profileMain>.col1>.school{
+  font-size: 1rem;
+}
+.profilePage>.profileAbout{
+  margin-top: 5vh;
+}
+.profilePage>.profileAbout>span{
+  font-size: 2rem;
+}
+.profilePage>.profileInterest{
+  margin-top: 5vh;
+}
+.profilePage>.profileInterest>span{
+  font-size: 2rem;
+}
+.profilePage>.profileRelease{
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+}
+.profilePage>.profileRelease>button{
+  border-radius: 6px;
+  background: var(--mobile-blue, #1D2859);
+  display: flex;
+  padding: 12px 24px;
+  align-items: center;
+  width: fit-content;
+  gap: 2px; 
+  color:#FBFDFF;
+}
+
+.profilePage>.profileRelease>span{
+  font-size: 4vh;
 }

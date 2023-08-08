@@ -213,14 +213,17 @@ font-size: 2vh;
 .ourTeam>.container{
   display: grid;
   grid-template-columns: 20vw 20vw 20vw;
-  grid-template-rows: 60vh 60vh 60vh ;
+  grid-template-rows: 50vh 50vh 50vh 50vh ;
   grid-gap: 20px;
 }
 .teamMember>img{
-  width: 20vw;
-  height: 40vh;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  
 }
 .teamMember>.name{
+  margin-top: auto;
   font-size: 4vh;
 }
 
@@ -255,7 +258,7 @@ font-size: 2vh;
 }
 .profilePage>.profileMain>.col2>img{
   width: 20vw;
-  height: 40vh;
+  height: auto;
   border-radius: 6px; 
 }
 .profilePage>.profileMain>.col1>.name{
