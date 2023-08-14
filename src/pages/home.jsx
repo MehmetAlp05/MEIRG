@@ -13,6 +13,7 @@ import {db} from '../../.firebase/firebaseConfig';
 import MobileNavbar from '../components/mobile-navbar'
 
 
+
 export default function Home(){
     const [users,setUsers]=useState([]);
     const [release,setRelease]=useState([]);
@@ -78,6 +79,7 @@ export default function Home(){
                 <Release release={release}/>
                 <Footer/>
                 <MobileNavbar img={hamburgerNormal} isMenu={isMenu} onChange={setMenu} background="#F6F9F8"/>
+                
             </div>
         </>
     )

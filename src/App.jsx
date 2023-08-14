@@ -1,4 +1,3 @@
-import { useState ,useContext} from 'react'
 import './App.css'
 import './App-mobile.css'
 import Home from './pages/home';
@@ -8,6 +7,7 @@ import ReleasePage from './pages/releasePage';
 import Login from './pages/Login';
 import ProfilePage from './pages/profile';
 import ReleaseUpload from './pages/releaseUpload';
+import Cake from './components/cake';
 
 
 
@@ -22,6 +22,7 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/releaseupload" element={<ReleaseUpload/>} />
+        <Route path="/birthday" element={<Cake/>} />
         
       </Routes>
     </>

@@ -58,7 +58,7 @@ export default function About(){
                 <Footer color="#FBFDFF"/>
                 <MobileNavbar img={hamburgerOrange} isMenu={isMenu} onChange={setMenu} background="#1D2859"/></>}
                 {
-                    (isProfile)&&<Profile name={currentUser.current.name} school={currentUser.current.university} release={currentRelease.current} img={currentUser.current.picture}/>
+                    (isProfile)&&<Profile name={currentUser.current.name} school={currentUser.current.university} release={currentRelease.current} img={currentUser.current.picture} uid={currentUser.current.uid}/>
                 }
 
             </div>

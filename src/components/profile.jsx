@@ -1,3 +1,4 @@
+import { ReactFloatingBalloons } from "react-floating-balloons";
 
 export default function Profile (props){
     return(
@@ -46,6 +47,14 @@ export default function Profile (props){
                 </div>
             </div>
         </div>
+        {
+            (props.uid==="KsApIi7MrLeso9V1KFqHzAfyNeX2")&&<ReactFloatingBalloons
+            count={5}
+            msgText="İyi ki doğdun"
+            colors={["orange", "purple"]}
+            popVolumeLevel={0.1}
+        />
+        }
         </>
     )
 }

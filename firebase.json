@@ -1,6 +1,11 @@
 {
   "hosting": {
+    "site": "agile-research",
     "public": "dist",
+    "rewrites": [ {
+      "source": "**",
+      "destination": "/index.html"
+    } ],
     "ignore": [
       "firebase.json",
       "**/.*",

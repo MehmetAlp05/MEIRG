@@ -282,7 +282,7 @@
   display: none;
 }
   
-}
+
 /*Profile*/
 .profilePage{
   display: flex;
@@ -351,4 +351,5 @@
 
 .profilePage>.profileRelease>span{
   font-size: 4vh;
+}
 }

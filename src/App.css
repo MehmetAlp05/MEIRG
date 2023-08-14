@@ -237,6 +237,7 @@ font-size: 2vh;
   padding-bottom: 1vh;
   width: 60vw;
   border-radius: 12px; 
+  min-height: 100vh;
 }
 .profilePage>.profileMain{
   display: flex;
@@ -433,4 +434,10 @@ font-size: 2vh;
   width: 40vw;
   height: 15vh;
 }
+}
+.scroll{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
