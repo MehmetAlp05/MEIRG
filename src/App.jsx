@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import ProfilePage from './pages/profile';
 import ReleaseUpload from './pages/releaseUpload';
 import Cake from './components/cake';
+import Edu from './pages/edu';
 
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/releaseupload" element={<ReleaseUpload/>} />
         <Route path="/birthday" element={<Cake/>} />
+        <Route path="/edu" element={<Edu/>} />
         
       </Routes>
     </>
