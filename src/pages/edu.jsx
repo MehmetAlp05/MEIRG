@@ -40,6 +40,9 @@ export default function Edu(){
                 </div>}
                 <Footer/>
             </div>
+            <div className="mobile mobileAttention">
+                working on desktop would be more healthy 😇
+            </div>
         </>
     )
 }

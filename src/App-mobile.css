@@ -352,4 +352,15 @@
 .profilePage>.profileRelease>span{
   font-size: 4vh;
 }
+.edu{
+  display: none;
+}
+.mobileAttention{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
 }
