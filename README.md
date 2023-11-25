@@ -19,29 +19,44 @@ The project is now hosted on the Firebase. You can choose your own hosting servi
 To learn how to host projects check the [video](https://youtu.be/qUyHQMv0o5E?si=9Z0BNjPbF0yzzz2Q)
 
 ### Project structure
-- Assets
-  - visual assests in this file
-- Components
-  - cake.jsx
-  - footer.jsx
-  - mobile-navbar.jsx
-  - navbar.jsx
-  - ourTeam.jsx
-  - profile.jsx
-  - release.jsx
-  - releaseCard.jsx
-  - releaseInfo.jsx
-  - welcom.jsx
-  - whoweare.jsx
-- pages
-  - about.jsx
-  - edu.jsx
-  - home.jsx
-  - Login.jsx
-  - profile.jsx
-  - releasePage.jsx
-  - releaseUpload.jsx
-
+````BASH
+├── App-mobile.css
+├── App.css
+├── App.jsx
+├── assets
+│   ├── Rectangle9.png
+│   ├── article.svg
+│   ├── hamburgerNormal.svg
+│   ├── hamburgerOrange.svg
+│   ├── hamburgerPurple.svg
+│   ├── podcast.svg
+│   ├── react.svg
+│   ├── research1.png
+│   └── video.svg
+├── components
+│   ├── cake.jsx
+│   ├── footer.jsx
+│   ├── mobile-navbar.jsx
+│   ├── navbar.jsx
+│   ├── ourTeam.jsx
+│   ├── profile.jsx
+│   ├── release.jsx
+│   ├── releaseCard.jsx
+│   ├── releaseInfo.jsx
+│   ├── welcome.jsx
+│   └── whoweare.jsx
+├── index.css
+├── main.jsx
+├── mobile.css
+└── pages
+    ├── Login.jsx
+    ├── about.jsx
+    ├── edu.jsx
+    ├── home.jsx
+    ├── profile.jsx
+    ├── releasePage.jsx
+    └── releaseUpload.jsx
+````
 ### user data structure in firebase firestore
 ```
 about:"String"
